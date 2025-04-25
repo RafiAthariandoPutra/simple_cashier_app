@@ -31,11 +31,11 @@
 				<td><?php echo $hasil['nama_kategori'];?></td>
 			</tr>
 			<tr>
-				<td>Nama Barang</td>
+				<td>Nama Buku</td>
 				<td><?php echo $hasil['nama_barang'];?></td>
 			</tr>
 			<tr>
-				<td>Merk Barang</td>
+				<td>Penerbit</td>
 				<td><?php echo $hasil['merk'];?></td>
 			</tr>
 			<tr>

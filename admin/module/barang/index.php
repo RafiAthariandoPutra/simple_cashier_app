@@ -48,8 +48,8 @@
                             <th>No.</th>
                             <th>ID Barang</th>
                             <th>Kategori</th>
-                            <th>Nama Barang</th>
-                            <th>Merk</th>
+                            <th>Nama Buku</th>
+                            <th>Penerbit</th>
                             <th>Stok</th>
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
@@ -168,13 +168,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nama Barang</td>
-                                    <td><input type="text" placeholder="Nama Barang" required class="form-control"
+                                    <td>Nama Buku</td>
+                                    <td><input type="text" placeholder="Nama Buku" required class="form-control"
                                             name="nama"></td>
                                 </tr>
                                 <tr>
-                                    <td>Merk Barang</td>
-                                    <td><input type="text" placeholder="Merk Barang" required class="form-control"
+                                    <td>Penerbit</td>
+                                    <td><input type="text" placeholder="Penerbit" required class="form-control"
                                             name="merk"></td>
                                 </tr>
                                 <tr>

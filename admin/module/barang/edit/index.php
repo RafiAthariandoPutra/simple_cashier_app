@@ -42,11 +42,11 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Nama Barang</td>
+					<td>Nama Buku</td>
 					<td><input type="text" class="form-control" value="<?php echo $hasil['nama_barang'];?>" name="nama"></td>
 				</tr>
 				<tr>
-					<td>Merk Barang</td>
+					<td>Penerbit</td>
 					<td><input type="text" class="form-control" value="<?php echo $hasil['merk'];?>" name="merk"></td>
 				</tr>
 				<tr>
