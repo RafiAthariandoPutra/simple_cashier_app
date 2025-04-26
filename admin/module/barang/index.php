@@ -33,8 +33,6 @@
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-primary btn-md mr-2" data-toggle="modal" data-target="#myModal">
             <i class="fa fa-plus"></i> Insert Data</button>
-        <a href="index.php?page=barang&stok=yes" class="btn btn-warning btn-md mr-2">
-            <i class="fa fa-list"></i> Sortir Stok Kurang</a>
         <a href="index.php?page=barang" class="btn btn-success btn-md">
             <i class="fa fa-refresh"></i> Refresh Data</a>
         <div class="clearfix"></div>

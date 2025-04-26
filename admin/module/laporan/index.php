@@ -34,67 +34,7 @@
 				<h5 class="card-title mt-2">Cari Laporan Per Bulan</h5>
 			</div>
 			<div class="card-body p-0">
-				<form method="post" action="index.php?page=laporan&cari=ok">
-					<table class="table table-striped">
-						<tr>
-							<th>
-								Pilih Bulan
-							</th>
-							<th>
-								Pilih Tahun
-							</th>
-							<th>
-								Aksi
-							</th>
-						</tr>
-						<tr>
-							<td>
-								<select name="bln" class="form-control">
-									<option selected="selected">Bulan</option>
-									<?php
-								$bulan=array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
-								$jlh_bln=count($bulan);
-								$bln1 = array('01','02','03','04','05','06','07','08','09','10','11','12');
-								$no=1;
-								for($c=0; $c<$jlh_bln; $c+=1){
-									echo"<option value='$bln1[$c]'> $bulan[$c] </option>";
-								$no++;}
-							?>
-								</select>
-							</td>
-							<td>
-							<?php
-								$now=date('Y');
-								echo "<select name='thn' class='form-control'>";
-								echo '
-								<option selected="selected">Tahun</option>';
-								for ($a=2017;$a<=$now;$a++)
-								{
-									echo "<option value='$a'>$a</option>";
-								}
-								echo "</select>";
-							?>
-							</td>
-							<td>
-								<input type="hidden" name="periode" value="ya">
-								<button class="btn btn-primary">
-									<i class="fa fa-search"></i> Cari
-								</button>
-								<a href="index.php?page=laporan" class="btn btn-success">
-									<i class="fa fa-refresh"></i> Refresh</a>
-
-								<?php if(!empty($_GET['cari'])){?>
-								<a href="excel.php?cari=yes&bln=<?=$_POST['bln'];?>&thn=<?=$_POST['thn'];?>"
-									class="btn btn-info"><i class="fa fa-download"></i>
-									Excel</a>
-								<?php }else{?>
-								<a href="excel.php" class="btn btn-info"><i class="fa fa-download"></i>
-									Excel</a>
-								<?php }?>
-							</td>
-						</tr>
-					</table>
-				</form>
+ 
 				<form method="post" action="index.php?page=laporan&hari=cek">
 					<table class="table table-striped">
 						<tr>

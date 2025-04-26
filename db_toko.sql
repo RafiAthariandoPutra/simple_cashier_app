@@ -30,12 +30,6 @@ CREATE TABLE `barang` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-/*Data for the table `barang` */
-
-insert  into `barang`(`id`,`id_barang`,`id_kategori`,`nama_barang`,`merk`,`harga_beli`,`harga_jual`,`satuan_barang`,`stok`,`tgl_input`,`tgl_update`) values 
-(1,'BR001',1,'Pensil','Fabel Castel','1500','3000','PCS','98','6 October 2020, 0:41',NULL),
-(2,'BR002',5,'Sabun','Lifeboy','1800','3000','PCS','38','6 October 2020, 0:41','6 October 2020, 0:54'),
-(3,'BR003',1,'Pulpen','Standard','1500','2000','PCS','70','6 October 2020, 1:34',NULL);
 
 /*Table structure for table `kategori` */
 
@@ -48,13 +42,6 @@ CREATE TABLE `kategori` (
   PRIMARY KEY (`id_kategori`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-/*Data for the table `kategori` */
-
-insert  into `kategori`(`id_kategori`,`nama_kategori`,`tgl_input`) values 
-(1,'ATK','7 May 2017, 10:23'),
-(5,'Sabun','7 May 2017, 10:28'),
-(6,'Snack','6 October 2020, 0:19'),
-(7,'Minuman','6 October 2020, 0:20');
 
 /*Table structure for table `login` */
 
@@ -70,8 +57,6 @@ CREATE TABLE `login` (
 
 /*Data for the table `login` */
 
-insert  into `login`(`id_login`,`user`,`pass`,`id_member`) values 
-(1,'admin','202cb962ac59075b964b07152d234b70',1);
 
 /*Table structure for table `member` */
 
@@ -88,10 +73,6 @@ CREATE TABLE `member` (
   PRIMARY KEY (`id_member`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-/*Data for the table `member` */
-
-insert  into `member`(`id_member`,`nm_member`,`alamat_member`,`telepon`,`email`,`gambar`,`NIK`) values 
-(1,'Fauzan Falah','uj harapan','081234567890','example@gmail.com','unnamed.jpg','12314121');
 
 /*Table structure for table `nota` */
 
@@ -139,10 +120,7 @@ CREATE TABLE `toko` (
   PRIMARY KEY (`id_toko`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-/*Data for the table `toko` */
 
-insert  into `toko`(`id_toko`,`nama_toko`,`alamat_toko`,`tlp`,`nama_pemilik`) values 
-(1,'CV Daruttaqwa','Ujung Harapan','081234567890','Fauzan Falah');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

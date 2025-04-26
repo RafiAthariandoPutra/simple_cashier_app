@@ -1,5 +1,5 @@
 <?php
-	@ob_start();
+	
 	session_start();
 	if(isset($_POST['proses'])){
 		require 'config.php';
@@ -31,7 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login - POS Codekop</title>
+    <title>Login -Toko Serba Ada Buku</title>
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -52,12 +52,12 @@
                         <!-- Nested Row within Card Body -->
 						<div class="p-5">
 							<div class="text-center">
-								<h4 class="h4 text-gray-900 mb-4"><b>Login POS Codekop</b></h4>
+								<h4 class="h4 text-gray-900 mb-4"><b>Login Kasir</b></h4>
 							</div>
 							<form class="form-login" method="POST">
 								<div class="form-group">
 									<input type="text" class="form-control form-control-user" name="user"
-										placeholder="User ID" autofocus>
+										placeholder="Username" autofocus>
 								</div>
 								<div class="form-group">
 									<input type="password" class="form-control form-control-user" name="pass"
@@ -67,13 +67,10 @@
 										class="fa fa-lock"></i>
 									SIGN IN</button>
 							</form>
-							<!-- <hr>
+							<hr>
 							<div class="text-center">
-								<a class="small" href="forgot-password.html">Forgot Password?</a>
+								<a class="small" href="register.php">Register Here !</a>
 							</div>
-							<div class="text-center">
-								<a class="small" href="register.html">Create an Account!</a>
-							</div> -->
 						</div>
                     </div>
                 </div>
