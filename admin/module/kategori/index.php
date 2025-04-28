@@ -1,3 +1,6 @@
+<?php
+// Simpan sebagai index.php (menggantikan yang lama)
+?>
 <h4>Kategori</h4>
 <br />
 <?php if(isset($_GET['success'])){?>
@@ -15,26 +18,8 @@
     <p>Hapus Data Berhasil !</p>
 </div>
 <?php }?>
-<?php 
-	if(!empty($_GET['uid'])){
-	$sql = "SELECT * FROM kategori WHERE id_kategori = ?";
-	$row = $config->prepare($sql);
-	$row->execute(array($_GET['uid']));
-	$edit = $row->fetch();
-?>
-<form method="POST" action="fungsi/edit/edit.php?kategori=edit">
-    <table>
-        <tr>
-            <td style="width:25pc;"><input type="text" class="form-control" value="<?= $edit['nama_kategori'];?>"
-                    required name="kategori" placeholder="Masukan Kategori Barang Baru">
-                <input type="hidden" name="id" value="<?= $edit['id_kategori'];?>">
-            </td>
-            <td style="padding-left:10px;"><button id="tombol-simpan" class="btn btn-primary"><i class="fa fa-edit"></i>
-                    Ubah Data</button></td>
-        </tr>
-    </table>
-</form>
-<?php }else{?>
+
+<!-- Form Tambah Kategori -->
 <form method="POST" action="fungsi/tambah/tambah.php?kategori=tambah">
     <table>
         <tr>
@@ -45,7 +30,7 @@
         </tr>
     </table>
 </form>
-<?php }?>
+
 <br />
 <div class="card card-body">
     <div class="table-responsive">
@@ -60,17 +45,20 @@
             </thead>
             <tbody>
                 <?php 
-				$hasil = $lihat -> kategori();
-				$no=1;
-				foreach($hasil as $isi){
-			?>
+                $hasil = $lihat -> kategori();
+                $no=1;
+                foreach($hasil as $isi){
+                ?>
                 <tr>
                     <td><?php echo $no;?></td>
                     <td><?php echo $isi['nama_kategori'];?></td>
                     <td><?php echo $isi['tgl_input'];?></td>
                     <td>
-                        <a href="index.php?page=kategori&uid=<?php echo $isi['id_kategori'];?>"><button
-                                class="btn btn-warning">Edit</button></a>
+                        <button class="btn btn-warning edit-kategori" 
+                            data-id="<?php echo $isi['id_kategori'];?>" 
+                            data-nama="<?php echo $isi['nama_kategori'];?>">
+                            Edit
+                        </button>
                         <a href="fungsi/hapus/hapus.php?kategori=hapus&id=<?php echo $isi['id_kategori'];?>"
                             onclick="javascript:return confirm('Hapus Data Kategori ?');"><button
                                 class="btn btn-danger">Hapus</button></a>
@@ -81,3 +69,72 @@
         </table>
     </div>
 </div>
+
+<!-- Modal Edit Kategori -->
+<div class="modal fade" id="editKategoriModal" tabindex="-1" role="dialog" aria-labelledby="editKategoriModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editKategoriModalLabel">Edit Kategori</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="formEditKategori">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="edit_kategori">Nama Kategori</label>
+                        <input type="text" class="form-control" id="edit_kategori" name="kategori" required>
+                        <input type="hidden" id="edit_id" name="id">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript untuk Modal dan AJAX -->
+<script>
+    $(document).ready(function() {
+        // Event ketika tombol edit diklik
+        $('.edit-kategori').click(function() {
+            var id = $(this).data('id');
+            var nama = $(this).data('nama');
+            
+            // Mengisi form edit dengan data yang ada
+            $('#edit_id').val(id);
+            $('#edit_kategori').val(nama);
+            
+            // Menampilkan modal
+            $('#editKategoriModal').modal('show');
+        });
+        
+        // Menangani submit form edit
+        $('#formEditKategori').submit(function(e) {
+            e.preventDefault();
+            
+            $.ajax({
+                url: 'fungsi/edit/edit.php?kategori=edit',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    // Menutup modal
+                    $('#editKategoriModal').modal('hide');
+                    
+                    // Menampilkan pesan sukses
+                    alert('Kategori berhasil diupdate!');
+                    
+                    // Refresh halaman untuk menampilkan data terbaru
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    alert('Terjadi kesalahan: ' + error);
+                }
+            });
+        });
+    });
+</script>

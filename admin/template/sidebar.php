@@ -8,9 +8,9 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <!-- <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-cash-register"></i>
-        </div>
+        </div> -->
         <div class="sidebar-brand-text mx-3">TOKO Serba Ada Buku<sup></sup></div>
     </a>
 
